@@ -13,7 +13,7 @@
 
     <name>MyApp</name>
     <description>Sample Maven project deploying to Nexus Repository</description>
-    <url>http://54.158.239.65:8081</url>
+    <url>http://13.219.73.36:8081</url>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -24,7 +24,7 @@
     <build>
         <plugins>
 
-            <!-- Compiler Plugin -->
+            <!-- ✅ Compiler Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -35,7 +35,7 @@
                 </configuration>
             </plugin>
 
-            <!-- Jar Plugin -->
+            <!-- ✅ Jar Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -49,13 +49,14 @@
                 </configuration>
             </plugin>
 
-            <!-- Deploy Plugin -->
+            <!-- ✅ Deploy Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>
                 <version>3.1.1</version>
                 <configuration>
-                    <altDeploymentRepository>nexus::default::http://54.158.239.65:8081/repository/maven-releases/</altDeploymentRepository>
+                    <!-- Use the new Nexus server IP -->
+                    <altDeploymentRepository>nexus::default::http://13.219.73.36:8081/repository/maven-releases/</altDeploymentRepository>
                 </configuration>
             </plugin>
 
@@ -67,12 +68,12 @@
         <repository>
             <id>nexus</id>
             <name>Nexus Releases Repository</name>
-            <url>http://54.158.239.65:8081/repository/maven-releases/</url>
+            <url>http://13.219.73.36:8081/repository/maven-releases/</url>
         </repository>
         <snapshotRepository>
             <id>nexus</id>
             <name>Nexus Snapshots Repository</name>
-            <url>http://54.158.239.65:8081/repository/maven-snapshots/</url>
+            <url>http://13.219.73.36:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 
